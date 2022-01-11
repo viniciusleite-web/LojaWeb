@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace LojaWeb.Controllers
 {
-    public class Mensagem : Controller
+    public class MensagemController : Controller
     {
         public IActionResult Index()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult MensagemBemvindo()
         {
             return View();
         }

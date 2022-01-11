@@ -1,4 +1,5 @@
-﻿using LojaWeb.Models;
+﻿using LojaWeb.Controllers.Base;
+using LojaWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -9,14 +10,9 @@ using System.Threading.Tasks;
 
 namespace LojaWeb.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+     
 
         public IActionResult Index()
         {
@@ -25,13 +21,21 @@ namespace LojaWeb.Controllers
 
         public IActionResult Privacy()
         {
+            ViewData["Title"] = "Privacidade do Carlos";
+            ViewBag.Nome = "Carlos";
+            Mensagem("info: Tela de privacidade", "info");
             return View();
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult Privacy(string Id,string Nome)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (string.IsNullOrEmpty(Nome))
+            {
+                Mensagem("Erro: Inssira um Nome","error");
+                return View();
+            }
+            return View("Index");
         }
+        
     }
 }

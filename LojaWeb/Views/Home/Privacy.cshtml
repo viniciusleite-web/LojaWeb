@@ -1,6 +1,14 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Polotica de Privacidade";
 }
 <h1>@ViewData["Title"]</h1>
+<h2>Meu nome : @ViewBag.Nome</h2>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<partial name="_mensagensPartial" />
+
+<form action="privacy" method="post">
+    Id <input type="text" name="Id" />
+    Nome <input type="text" name="Nome" />
+        <input type="submit" name="name" value="Salvar" />
+</form>
+    
