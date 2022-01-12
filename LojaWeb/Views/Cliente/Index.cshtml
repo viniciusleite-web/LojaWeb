@@ -11,7 +11,7 @@
     <a asp-action="Create">Create New</a>
 </p>
 <partial name="_mensagensPartial" />
-<table class="table">
+<table class="table" id="tabelaClientes">
     <thead>
         <tr>
             <th>Indice</th>
@@ -56,3 +56,14 @@
 }
     </tbody>
 </table>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#tabelaClientes').DataTable({
+                "language" :{
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese.json"
+                }
+            });
+        });
+    </script>
+ }
