@@ -11,7 +11,6 @@ namespace LojaWeb.Models
         [Display(Name = "Endereço do cliente")]
         public string Endereço { get; set; }
         [Required]
-        
         public string CPF { get; set; }
 
         
