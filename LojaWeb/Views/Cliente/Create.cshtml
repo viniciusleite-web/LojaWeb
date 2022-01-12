@@ -33,8 +33,17 @@
                 <span asp-validation-for="CPF" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <select class="js-exemple-basic-single form-control" name="estados">
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="SC">Santa Catarina</option>
+                </select>
             </div>
+                <div class="form-group">
+                    <input type="submit" value="Salvar" class="btn btn-primary" />
+                </div>
         </form>
     </div>
 </div>
@@ -42,4 +51,12 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('.js-exemple-basic-single').select2();
+        });
+    </script>
+ }
+
 
